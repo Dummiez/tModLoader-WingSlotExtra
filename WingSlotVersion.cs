@@ -27,7 +27,6 @@ namespace WingSlotExtra
                     if (fetchVersion.Contains("version="))
                     {
                         fetchVersion = fetchVersion.Split(new[] { "version=" }, StringSplitOptions.None)[1].Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)[0];
-                        Main.NewText(fetchVersion);
                         LatestVersion = new Version(fetchVersion);
                         if (LatestVersion > WingSlotExtra.Instance.Version)
                         {
