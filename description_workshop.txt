@@ -7,8 +7,9 @@
 • Left-click the eye icon on the equip slot to toggle visibility.
 
 [h1]Recent Updates[/h1]
-[b](07/08/2022)[/b]
+[b](13/08/2022)[/b]
 • Stable release update.
+• Added new version checker.
 • Updated workshop icon.
 • New default location! Wing slot will now align with the regular accessory slots. If you prefer the original position, you can change it back under the mod configuration.
 • New color for the wing slot! (default if using custom UI)

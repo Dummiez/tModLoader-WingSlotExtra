@@ -2,6 +2,8 @@
 The full description can be found on the Steam workshop page.
 
 [c/ff9eb4:Changelog:]
+[c/f5ffc7:v1.3.3 (13/08/2022)]
+• Added new version checker.
 [c/f5ffc7:v1.3.2 (07/08/2022)]
 • Stable release update.
 • Minor performance optimizations.
