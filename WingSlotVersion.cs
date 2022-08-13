@@ -23,9 +23,11 @@ namespace WingSlotExtra
                     string buildResult = await client.GetStringAsync($"https://raw.githubusercontent.com/Dummiez/tModLoader-WingSlotExtra/main/build.txt");
                     var fetchVersion = buildResult.ToLower().Replace(" ", "");
                     var LatestVersion = WingSlotExtra.Instance.Version;
+                    
                     if (fetchVersion.Contains("version="))
                     {
-                        fetchVersion = fetchVersion.Split(new[] { "version=" }, StringSplitOptions.None)[1].Split(new[] { Environment.NewLine }, StringSplitOptions.None)[0];
+                        fetchVersion = fetchVersion.Split(new[] { "version=" }, StringSplitOptions.None)[1].Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)[0];
+                        Main.NewText(fetchVersion);
                         LatestVersion = new Version(fetchVersion);
                         if (LatestVersion > WingSlotExtra.Instance.Version)
                         {
@@ -34,7 +36,7 @@ namespace WingSlotExtra
                                 Main.NewText($"A new version of {WingSlotExtra.Instance.Name} ({WingSlotExtra.Instance.DisplayName}) is available: v{LatestVersion}", Color.LightBlue);
                                 if (buildResult.Contains("patchNotes = "))
                                 {
-                                    var patchNote = buildResult.Split(new[] { "patchNotes = " }, StringSplitOptions.None)[1].Split(new[] { Environment.NewLine }, StringSplitOptions.None)[0];
+                                    var patchNote = buildResult.Split(new[] { "patchNotes = " }, StringSplitOptions.None)[1].Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)[0];
                                     Main.NewText($"{patchNote}", Color.LightBlue);
                                 }
                             }
