@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Skrzydła"
+				VanitySlot: "Skrzydła próżności"
+				DyeSlot: "Barwnik"
+			}
+			Configuration: {
+				ConfigLabel: "Konfiguracja gniazda skrzydła"
+				WingSlotHeader: "Ustawienia gniazda skrzydeł"
+				SlotsAtAccesories: "[i:156] Sloty obok akcesoriów"
+				SlotsAtAccesoriesTooltip: "Umieść Wing Slot obok akcesoriów (ON)\nobok wyposażenia (zwierzaki, minecart, itp.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Allow Wings in Accessory Slots"
+				AllowAccessorySlotsTooltip: "Skrzydła mogą być umieszczane w slotach na akcesoria innych niż slot na skrzydła."
+				SlotsAlongAccessories: "[i:212] Połącz Slot Skrzydła z akcesoriami"
+				SlotsAlongAccessoriesTooltip: "Umieść Slot Skrzydła wzdłuż kolumny akcesoriów (ON)\nNa lewo od kolumny akcesoriów (OFF)"
+			}
+		}
+	}
+}

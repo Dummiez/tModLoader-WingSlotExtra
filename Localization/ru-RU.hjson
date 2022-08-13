@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Крылья"
+				VanitySlot: "Крылья тщеславия"
+				DyeSlot: "Краска"
+			}
+			Configuration: {
+				ConfigLabel: "Конфигурация паза крыла"
+				WingSlotHeader: "Настройки слота крыла"
+				SlotsAtAccesories: "[i:156] Слоты рядом с аксессуарами"
+				SlotsAtAccesoriesTooltip: "Поместите слот крыла рядом с аксессуарами (ON)\nрядом с оборудованием (питомцы, миникарта и т.д.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Разрешить крылья в слотах для аксессуаров"
+				AllowAccessorySlotsTooltip: "Крылья могут быть размещены в слотах для аксессуаров, отличных от слота для крыльев."
+				SlotsAlongAccessories: "[i:212] Объединить слот крыла с аксессуарами"
+				SlotsAlongAccessoriesTooltip: "Поместите слот крыла вдоль колонки аксессуаров (ON)\nСлева от колонки аксессуаров (OFF)"
+			}
+		}
+	}
+}

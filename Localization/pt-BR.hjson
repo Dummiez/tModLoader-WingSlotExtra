@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Asas"
+				VanitySlot: "Asas de vaidade"
+				DyeSlot: "Corante"
+			}
+			Configuration: {
+				ConfigLabel: "Configuração do Wing Slot"
+				WingSlotHeader: "Ajustes de Slot de Asa"
+				SlotsAtAccesories: "[i:156] Caça-níqueis ao lado de Acessórios"
+				SlotsAtAccesoriesTooltip: "Coloque o Wing Slot ao lado de acessórios (ON)\nAo lado de equipamentos (animais de estimação, minecart, etc.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Permitir as asas nos fendas acessórias)"
+				AllowAccessorySlotsTooltip: "As asas podem ser colocadas em ranhuras acessórias que não sejam a ranhura da Asa"
+				SlotsAlongAccessories: "[i:212] Fundir ranhura de asa para acessórios"
+				SlotsAlongAccessoriesTooltip: "Coloque a ranhura da asa ao longo da coluna de acessórios (ON)\nÀ esquerda da coluna de acessórios (OFF)"
+			}
+		}
+	}
+}

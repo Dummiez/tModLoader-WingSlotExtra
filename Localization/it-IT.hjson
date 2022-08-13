@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Ali"
+				VanitySlot: "Ali di vanità"
+				DyeSlot: "Tintura"
+			}
+			Configuration: {
+				ConfigLabel: "Configurazione dello slot dell'ala"
+				WingSlotHeader: "Impostazioni Slot Ala"
+				SlotsAtAccesories: "[i:156] Slot accanto agli accessori"
+				SlotsAtAccesoriesTooltip: "Posizionare lo Slot Ala accanto agli accessori (ON)\naccanto all'equipaggiamento (animali domestici, minecart, ecc.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Consenti ali negli slot accessori"
+				AllowAccessorySlotsTooltip: "Le ali possono essere posizionate in slot accessori diversi dallo slot delle ali."
+				SlotsAlongAccessories: "[i:212] Unisci lo slot dell'ala agli accessori"
+				SlotsAlongAccessoriesTooltip: "Posiziona lo slot dell'ala lungo la colonna degli accessori (ON)\nA sinistra della colonna degli accessori (OFF)"
+			}
+		}
+	}
+}

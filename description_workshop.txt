@@ -1,0 +1,45 @@
+[b]This mod adds a dedicated wing slot near the armor and accessories page of the inventory. Updated with permission from original author abluescarab.[/b]
+
+[h1]Usage[/h1]
+• Right-click on wings from inventory to move it to wing slot.
+• Right-click vanity wings to swap with equipped wings.
+• Left-click a set of wings or a dye, then place it in the slot.
+• Left-click the eye icon on the equip slot to toggle visibility.
+
+[h1]Recent Updates[/h1]
+[b](07/08/2022)[/b]
+• Stable release update.
+• Updated workshop icon.
+• New default location! Wing slot will now align with the regular accessory slots. If you prefer the original position, you can change it back under the mod configuration.
+• New color for the wing slot! (default if using custom UI)
+• Minor bug fixes.
+
+[h1]Wing Slot Positioning Help[/h1]
+Don't like the location of the wing slot in-game? Here are some short guides on getting the wing slot to a few preset positions. It can also be sent to the equipment tab via mod config.
+
+[img]https://i.imgur.com/DWzrbSP.gif[/img]
+[b]↪ Moving wing slot to the classic position (beside the defense icon).[/b]
+
+[img]https://i.imgur.com/RM5EUFH.gif[/img]
+[b]↪ Moving wing slot to the accessory column via UI scale.[/b]
+
+[img]https://i.imgur.com/9ETdr4b.gif[/img]
+[b]↪ Moving wing slot to the accessory column via scroll option.[/b]
+
+[h1]Credits[/h1]
+[b]Solxan, jopojelly, Boffin, Zsashas, VVV101, vizthex, jofairden, direwolf420[/b]
+[url=https://github.com/abluescarab/tModLoader-WingSlot](full contribution details can be found on the github!)[/url]
+The full changelog can be found through the in-game description of the mod.
+
+[h1]Wing Slot broken or not working?[/h1]
+Be sure the mod is [b]enabled[/b], [b]reloaded[/b] and [b]up to date[/b]. In the case of errors in-game, please provide a portion of the [b]client log[/b] from tModLoader in order to troubleshoot effectively.
+
+You can find the tModLoader logs in the folder as shown below:
+[img]https://i.imgur.com/BGm6zSb.png[/img] 
+You can use [url=https://steamcommunity.com/sharedfiles/filedetails/discussions/2597324266]Steam's Discussions Tab[/url] and post the the most recent lines near the end of the file, or find anything relating to Wing Slot. Requests or questions can be done in the comments.
+.
+.
+.
+
+[img]https://c.tenor.com/VLLJuwYmqkkAAAAC/error-wait.gif[/img]
+ᴍғᴡ ᴛɪᴍᴇ ᴛᴏ ʀᴇʟᴏᴀᴅ ᴍᴏᴅs

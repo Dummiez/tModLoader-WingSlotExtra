@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Alas"
+				VanitySlot: "Alas de vanidad"
+				DyeSlot: "Tinte"
+			}
+			Configuration: {
+				ConfigLabel: "Configuración de la ranura del ala"
+				WingSlotHeader: "Configuración de la ranura del ala"
+				SlotsAtAccesories: "[i:156] Ranuras junto a los accesorios"
+				SlotsAtAccesoriesTooltip: "Coloca la ranura del ala junto a los accesorios (ON)\ny junto al equipo (mascotas, minecart, etc.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Permitir alas en ranuras para accesorios"
+				AllowAccessorySlotsTooltip: "Las alas pueden colocarse en ranuras de accesorios distintas de la ranura de las alas."
+				SlotsAlongAccessories: "[i:212] Combinar la Ranura del Ala con los Accesorios"
+				SlotsAlongAccessoriesTooltip: "Colocar la ranura del ala a lo largo de la columna de accesorios (ON)\nA la izquierda de la columna de accesorios (OFF)"
+			}
+		}
+	}
+}

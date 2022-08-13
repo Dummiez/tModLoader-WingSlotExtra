@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Wings"
+				VanitySlot: "Vanity Wings"
+				DyeSlot: "Dye"
+			}
+			Configuration: {
+				ConfigLabel: "WingSlotConfig"
+				WingSlotHeader: "Wing Slot Settings"
+				SlotsAtAccesories: "[i:156] Slots Next to Accessories"
+				SlotsAtAccesoriesTooltip: "Place the Wing Slot next to accessories (ON)\nNext to equipment (pets, minecart, etc.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Allow Wings in Accessory Slots"
+				AllowAccessorySlotsTooltip: "Wings can be placed in accessory slots other than the Wing Slot."
+				SlotsAlongAccessories: "[i:212] Merge Wing Slot to Accessories"
+				SlotsAlongAccessoriesTooltip: "Place the Wing Slot along the accessory column (ON)\nTo the left of the accessory column (OFF)"
+			}
+		}
+	}
+}

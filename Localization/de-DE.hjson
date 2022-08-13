@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Flügel"
+				VanitySlot: "Eitelkeitsflügel"
+				DyeSlot: "Färbung"
+			}
+			Configuration: {
+				ConfigLabel: "Flügelschlitz-Konfiguration"
+				WingSlotHeader: "Flügelschlitz-Einstellungen"
+				SlotsAtAccesories: "[i:156] Slots neben Zubehör"
+				SlotsAtAccesoriesTooltip: "Platzieren Sie den Flügelsteckplatz neben Zubehör (ON)\nneben Ausrüstung (Haustiere, Minenkart, etc.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Flügel in Zubehörsteckplätzen zulassen"
+				AllowAccessorySlotsTooltip: "Flügel können in anderen Zubehörsteckplätzen als dem Flügelsteckplatz platziert werden."
+				SlotsAlongAccessories: "[i:212] Flügelsteckplatz mit Zubehör zusammenführen"
+				SlotsAlongAccessoriesTooltip: "Platzieren Sie den Flügelschlitz entlang der Zubehörspalte (ON)\nund links von der Zubehörspalte (OFF)"
+			}
+		}
+	}
+}

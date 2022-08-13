@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "Ailes"
+				VanitySlot: "Ailes de vanité"
+				DyeSlot: "Teinture"
+			}
+			Configuration: {
+				ConfigLabel: "Configuration de la fente de l'aile"
+				WingSlotHeader: "Paramètres du créneau de l'aile"
+				SlotsAtAccesories: "[i:156] Slots à côté des accessoires"
+				SlotsAtAccesoriesTooltip: "Placez la fente d'aile à côté des accessoires (ON)\nÀ côté de l'équipement (animaux de compagnie, charrette à mine, etc.) (OFF)"
+				AllowAccessorySlots: "[i:4978] Autoriser les ailes dans les emplacements d'accessoires"
+				AllowAccessorySlotsTooltip: "Les ailes peuvent être placées dans des emplacements d'accessoires autres que l'emplacement de l'aile."
+				SlotsAlongAccessories: "[i:212] Fusionner la fente de l'aile avec les accessoires"
+				SlotsAlongAccessoriesTooltip: "Placer la fente de l'aile le long de la colonne des accessoires (ON)\nA la gauche de la colonne des accessoires (OFF)"
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+# English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+# Localization for WingSlotExtra.tmod
+{
+	Mods: {
+		WingSlotExtra: {
+			AccessorySlot: {
+				FunctionalSlot: "翅膀"
+				VanitySlot: "虚荣心的翅膀"
+				DyeSlot: "染色"
+			}
+			Configuration: {
+				ConfigLabel: "翼形槽配置"
+				WingSlotHeader: "翼槽设置"
+				SlotsAtAccesories: "[i:156] 插槽在附件旁边"
+				SlotsAtAccesoriesTooltip: "将翼型槽放在配件旁边(ON)\n挨着设备(宠物、矿车等)(OFF)"
+				AllowAccessorySlots: "[i:4978] 允许在附件槽中放置机翼"
+				AllowAccessorySlotsTooltip: "机翼可以放在机翼槽以外的配件槽中。"
+				SlotsAlongAccessories: "[i:212] 将机翼槽合并到附件"
+				SlotsAlongAccessoriesTooltip: "将机翼槽沿着配件栏放置(ON)\n到配件栏的左边(OFF)"
+			}
+		}
+	}
+}

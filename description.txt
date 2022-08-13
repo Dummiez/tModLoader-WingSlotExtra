@@ -1,0 +1,44 @@
+﻿This mod adds a dedicated wing slot near the armor and accessories page of the inventory. Updated with permission from original author abluescarab.
+The full description can be found on the Steam workshop page.
+
+[c/ff9eb4:Changelog:]
+[c/f5ffc7:v1.3.2 (07/08/2022)]
+• Stable release update.
+• Minor performance optimizations.
+[c/f5ffc7:v1.3.1 (01/07/2022)]
+• Stable release update.
+• Updated workshop icon.
+[c/f5ffc7:v1.3 (24/06/2022)]
+• New default location! Wing slot will now align with the regular accessory slots. If you prefer the original position, you can change it back under the mod configuration.
+• New color for the wing slot! (default if using custom UI)
+• Minor bug fixes.
+[c/f5ffc7:v1.2.6 (23/06/2022)]
+• Attempt to fix an issue with the mod breaking UI.
+[c/f5ffc7:v1.2.5 (01/06/2022)]
+• Stable release update.
+• Minor bug fixes.
+[c/f5ffc7:v1.2.4 (01/05/2022)]
+• Updated Steam workshop tags.
+• Stable release update.
+[c/f5ffc7:v1.2.3 (04/03/2022)]
+• Fixed an issue with the mod breaking UI.
+[c/f5ffc7:v1.2.2 (18/01/2022)]
+• Wing Slot adjusted positioning when next to equipment slots.
+[c/f5ffc7:v1.2.1 (14/11/2021)]
+• Updated to .NET Runtime 6.0.0
+[c/f5ffc7:v1.2 ~]
+• Added basic localization support (DeepL) for the available languages. If you would like to improve these, feel free to leave a comment on the Steam page.
+• Minor config overhaul, bug fixes.
+[c/f5ffc7:v1.1 (04/10/2021)]
+• Migration to ModAccessorySlot (TerraUI deprecated).
+• Wings can now be removed even if the mod is disabled.
+• Fixed an issue with wing icons not appearing in slot.
+[c/f5ffc7:v1.0.4 (03/10/2021)]
+• Fixed an issue with modded accessory changes.
+[c/f5ffc7:v1.0.2 (30/09/2021)]
+• Updated Wing Slot icons.
+• Fixed a visual issue with wings not appearing on players.
+[c/f5ffc7:v1.0.1 (23/09/2021)]
+• Fixed an issue with SaveData.
+[c/f5ffc7:v1.0 (09/09/2021)]
+• Build for tModLoader v0.12 1.4 Alpha (ported by Aitherix)
