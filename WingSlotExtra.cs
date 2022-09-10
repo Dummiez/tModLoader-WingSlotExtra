@@ -63,7 +63,7 @@ namespace WingSlotExtra
 
     internal class WingSlotExtraGlobalItem : GlobalItem
     {
-        public override bool CanEquipAccessory(Item item, Player player, int slot, bool modded) =>
+        public override bool CanEquipAccessory(Item item, Player player, int slot, bool modded) => 
             (item.wingSlot > 0 && slot < 20 && modded == false) ? WingSlotExtra.WingConfig.AllowAccessorySlots : base.CanEquipAccessory(item, player, slot, modded);
     }
 
@@ -79,6 +79,7 @@ namespace WingSlotExtra
         {
             if (Main.gameMenu) // Adjust location of wing slot depending on current position and setting of other interfaces
                 return;
+            
 
             int mapH = (Main.mapEnabled && !Main.mapFullscreen && Main.mapStyle == 1) ? 256 : 0;
             Main.inventoryScale = 0.85f;
