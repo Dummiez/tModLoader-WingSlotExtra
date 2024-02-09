@@ -1,8 +1,8 @@
 displayName = Wing Slot Extra
 author = Aitherix
-version = 1.4.3
+version = 1.4.4
 homepage = https://github.com/abluescarab/tModLoader-WingSlot
 hideCode = false
 includeSource = true
 includePDB = true
-patchNotes = "Fixes more issues with wing slot loadout support."
+patchNotes = "Compatibility fixes for other mods."
