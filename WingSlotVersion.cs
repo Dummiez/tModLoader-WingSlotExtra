@@ -19,6 +19,7 @@ namespace WingSlotExtra
         {
             if (!NetworkInterface.GetIsNetworkAvailable() || Main.netMode == NetmodeID.SinglePlayer && !worldLoaded)
                 return;
+
             Task.Run(async () => {
                 while (Main.gameMenu)
                     Thread.Sleep(new TimeSpan(0, 0, 1));
@@ -50,7 +51,7 @@ namespace WingSlotExtra
                         }
                     }
                 }
-                catch (HttpRequestException e)
+                catch (Exception e)
                 {
                     Console.WriteLine($"[{WingSlotExtra.Instance.Name}] {e}");
                 }
@@ -59,6 +60,6 @@ namespace WingSlotExtra
     }
     internal class WingSlotExtraSystem : ModPlayer
     {
-        public override void OnEnterWorld(Player player) => WingSlotExtraVersion.CheckLatestVersion(true);
+        public override void OnEnterWorld() => WingSlotExtraVersion.CheckLatestVersion(true);
     }
 }
