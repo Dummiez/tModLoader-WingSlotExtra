@@ -2,6 +2,16 @@ This mod adds a dedicated wing slot near the armor and accessories page of the i
 The full description can be found on the Steam workshop page.
 
 [c/ff9eb4:Changelog:]
+[c/f5ffc7:v1.4.0 (09/02/2024)]
+• Added wing slot loadout support (enabled by default).
+• Fixed an issue with custom interface modpacks.
+• Minor bug fixes.
+[c/f5ffc7:v1.3.6 (26/05/2023)]
+• Localization update fixes.
+[c/f5ffc7:v1.3.5 (13/05/2023)]
+• Compatibility update to v1.4.4.
+[c/f5ffc7:v1.3.4 (10/09/2022)]
+• Stable release update.
 [c/f5ffc7:v1.3.3 (14/08/2022)]
 • Added new version checker.
 [c/f5ffc7:v1.3.2 (07/08/2022)]

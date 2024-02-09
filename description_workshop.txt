@@ -7,12 +7,13 @@
 • Left-click the eye icon on the equip slot to toggle visibility.
 
 [h1]Recent Updates[/h1]
-[b](13/08/2022)[/b]
-• Stable release update.
-• Added new version checker.
+[b](09/02/2024)[/b]
+• Updated for tModLoader v2023.12.
+• Added ability to equip multiple wings.
+• Added wing slot loadout support!
 • Updated workshop icon.
-• New default location! Wing slot will now align with the regular accessory slots. If you prefer the original position, you can change it back under the mod configuration.
-• New color for the wing slot! (default if using custom UI)
+• Fixed an issue with version checker.
+• Fixed an issue with custom interfaces.
 • Minor bug fixes.
 
 [h1]Wing Slot Positioning Help[/h1]
