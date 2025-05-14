@@ -2,8 +2,12 @@ This mod adds a dedicated wing slot near the armor and accessories page of the i
 The full description can be found on the Steam workshop page.
 
 [c/ff9eb4:Changelog:]
-[c/f5ffc7:v1.4.0 (09/02/2024)]
-• Added wing slot loadout support (enabled by default).
+[c/f5ffc7:v1.4.5 (13/05/2025)]
+• Attempt to address issue with mod loading times.
+• Minor bug fixes.
+[c/f5ffc7:v1.4.4 (09/02/2024)]
+• Added wing slot loadout support (disabled by default).
+• Fixed an issue with loadouts not working properly.
 • Fixed an issue with custom interface modpacks.
 • Minor bug fixes.
 [c/f5ffc7:v1.3.6 (26/05/2023)]
@@ -54,5 +58,3 @@ The full description can be found on the Steam workshop page.
 • Fixed an issue with SaveData.
 [c/f5ffc7:v1.0 (09/09/2021)]
 • Build for tModLoader v0.12 1.4 Alpha (ported by Aitherix)
-
-

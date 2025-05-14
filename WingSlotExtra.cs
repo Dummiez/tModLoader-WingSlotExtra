@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Mono.Cecil.Cil;
 using MonoMod.Cil;
 using ReLogic.Content;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -15,6 +14,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.UI;
+using Microsoft.CodeAnalysis;
 
 namespace WingSlotExtra
 {
@@ -24,9 +24,9 @@ namespace WingSlotExtra
         private static bool resourcePackEnabled = false;
         private static readonly WingSlotConfig wingConfig = ModContent.GetInstance<WingSlotConfig>();
 
-        internal static Dictionary<int, int> storedWingSlots = new();
-        internal static Dictionary<int, int> lastPlayerLoadout = new();
-        internal static Dictionary<string, Dictionary<int, (Item wings, Item vanity, Item dye, bool hidden)>> loadoutData = new();
+        internal static Dictionary<int, int> storedWingSlots = [];
+        internal static Dictionary<int, int> lastPlayerLoadout = [];
+        internal static Dictionary<string, Dictionary<int, (Item wings, Item vanity, Item dye, bool hidden)>> loadoutData = [];
         internal static string activePlayer;
 
         internal static WingSlotExtra Instance { get => instance; set => instance = value; }
@@ -66,7 +66,7 @@ namespace WingSlotExtra
             if (tag.ContainsKey("WingSlotExtra_Loadouts"))
             {
                 var loadoutDataList = tag.Get<List<TagCompound>>("WingSlotExtra_Loadouts");
-                WingSlotExtra.loadoutData ??= new Dictionary<string, Dictionary<int, (Item wings, Item vanity, Item dye, bool hidden)>>();
+                WingSlotExtra.loadoutData ??= []; // new Dictionary<string, Dictionary<int, (Item wings, Item vanity, Item dye, bool hidden)>>();
                 foreach (var tc in loadoutDataList)
                 {
                     var user = tc.GetString("user");
@@ -91,7 +91,7 @@ namespace WingSlotExtra
             var playerFile = Main.ActivePlayerFileData.Path.ToString();
             var lastIndex = playerFile.LastIndexOf('\\');
             var playerID = playerFile[(lastIndex + 1)..];
-            WingSlotExtra.lastPlayerLoadout = new();
+            WingSlotExtra.lastPlayerLoadout = [];
             // Iterate over the outer dictionary
             foreach (var outerKvp in WingSlotExtra.loadoutData)
             {
@@ -137,26 +137,29 @@ namespace WingSlotExtra
         internal static int PosX { get => posX; set => posX = value; }
         internal static int PosY { get => posY; set => posY = value; }
 
-        public override void Load() => IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color += ItemSlotDrawColourFixPatch;
+        //public override void Load() => IL_ItemSlot.Draw_SpriteBatch_ItemArray_int_int_Vector2_Color += ItemSlotDrawColourFixPatch;
 
         public void ItemSlotDrawColourFixPatch(ILContext il)
         {
-            var ilCursor = new ILCursor(il);
-            var backgroundTexture = 0;
-            if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCallvirt<AccessorySlotLoader>("GetBackgroundTexture"),
-                    i => i.MatchStloc(out backgroundTexture)))
+            if (WingSlotExtra.WingConfig.LoadoutSupportEnabled)
             {
-                Console.WriteLine($"[{WingSlotExtra.Instance.Name}] Unable to draw AccessorySlotLoader.GetBackgroundTexture.");
+                var ilCursor = new ILCursor(il);
+                var backgroundTexture = 0;
+                if (!ilCursor.TryGotoNext(MoveType.After, i => i.MatchCallvirt<AccessorySlotLoader>("GetBackgroundTexture"),
+                        i => i.MatchStloc(out backgroundTexture)))
+                {
+                    Mod.Logger.Warn($"[{WingSlotExtra.Instance.Name}] Unable to draw AccessorySlotLoader.GetBackgroundTexture.");
+                }
+                ilCursor.EmitLdarg3();
+                ilCursor.EmitLdarg2();
+                ilCursor.Emit<WingSlotExtraUpdateUI>(OpCodes.Call, "GetColor");
+                ilCursor.Emit(OpCodes.Stloc_S, (byte)8);
+                ilCursor.Emit<WingSlotExtraUpdateUI>(OpCodes.Call, "GetLoader");
+                ilCursor.EmitLdarg3();
+                ilCursor.EmitLdarg2();
+                ilCursor.Emit<WingSlotExtraUpdateUI>(OpCodes.Call, "GetTexture");
+                ilCursor.EmitStloc(backgroundTexture);
             }
-            ilCursor.EmitLdarg3();
-            ilCursor.EmitLdarg2();
-            ilCursor.Emit<WingSlotExtraUpdateUI>(OpCodes.Call, "GetColor");
-            ilCursor.Emit(OpCodes.Stloc_S, (byte)8);
-            ilCursor.Emit<WingSlotExtraUpdateUI>(OpCodes.Call, "GetLoader");
-            ilCursor.EmitLdarg3();
-            ilCursor.EmitLdarg2();
-            ilCursor.Emit<WingSlotExtraUpdateUI>(OpCodes.Call, "GetTexture");
-            ilCursor.EmitStloc(backgroundTexture);
         }
 
         public static AccessorySlotLoader GetLoader()
@@ -313,93 +316,59 @@ namespace WingSlotExtra
                     break;
             }
         }
-        public override void ApplyEquipEffects()
+/*        public override void ApplyEquipEffects() // Simple loadout support for wing slot
         {
+            var loader = LoaderManager.Get<AccessorySlotLoader>();
+            var playerFile = Main.ActivePlayerFileData.Path.ToString();
+            var lastIndex = playerFile.LastIndexOf('\\');
+            var playerID = playerFile[(lastIndex + 1)..];
+            var wingSlotIndex = Player.CurrentLoadoutIndex;
+            if (!WingSlotExtra.loadoutData.ContainsKey(WingSlotExtra.activePlayer))
+            {
+                if (string.IsNullOrEmpty(WingSlotExtra.activePlayer))
+                {
+                    WingSlotExtra.activePlayer = playerID;
+                }
+                WingSlotExtra.loadoutData.Add(WingSlotExtra.activePlayer,
+                new Dictionary<int, (Item wings, Item vanity, Item dye, bool hidden)> {
+                                        { 0, (new Item(), new Item(), new Item(), false) },
+                                        { 1, (new Item(), new Item(), new Item(), false) },
+                                        { 2, (new Item(), new Item(), new Item(), false) }
+                });
+            }
             if (WingSlotExtra.WingConfig.LoadoutSupportEnabled)
             {
-                var loader = LoaderManager.Get<AccessorySlotLoader>();
-                string playerID = GetPlayerID();
-                InitializeLoadoutData(playerID);
-
                 for (var i = 0; i < ModSlotPlayer.SlotCount; i++)
                 {
                     var slot = loader.Get(i);
-                    bool modReady = loader.ModdedIsItemSlotUnlockedAndUsable(i, Player);
-                    bool lastLoad = WingSlotExtra.lastPlayerLoadout.ContainsKey(Player.whoAmI);
+                    var modReady = loader.ModdedIsItemSlotUnlockedAndUsable(i, Player);
+                    var lastLoad = WingSlotExtra.lastPlayerLoadout.ContainsKey(Player.whoAmI);
 
                     if (modReady && slot.Name == ModContent.GetInstance<WingSlotExtra>().Name)
-                    {
-                        if (!lastLoad || WingSlotExtra.lastPlayerLoadout[Player.whoAmI] != Player.CurrentLoadoutIndex)
+                        if (!lastLoad || WingSlotExtra.lastPlayerLoadout[Player.whoAmI] != wingSlotIndex)
                         {
-                            UpdateLoadoutData(slot, lastLoad);
+                            if (playerID == WingSlotExtra.activePlayer && Main.LocalPlayer.CurrentLoadoutIndex == wingSlotIndex && Main.LocalPlayer.whoAmI == Player.whoAmI)
+                            {
+                                if (!lastLoad) WingSlotExtra.lastPlayerLoadout[Player.whoAmI] = wingSlotIndex;
+
+                                WingSlotExtra.loadoutData[WingSlotExtra.activePlayer][WingSlotExtra.lastPlayerLoadout[Player.whoAmI]] = (slot.FunctionalItem, slot.VanityItem, slot.DyeItem, slot.HideVisuals);
+                                WingSlotExtra.lastPlayerLoadout[Player.whoAmI] = wingSlotIndex;
+                                var (wings, vanity, dye, hidden) = WingSlotExtra.loadoutData[WingSlotExtra.activePlayer][WingSlotExtra.lastPlayerLoadout[Player.whoAmI]];
+                                slot.FunctionalItem = wings;
+                                slot.VanityItem = vanity;
+                                slot.DyeItem = dye;
+                                slot.HideVisuals = hidden;
+                                ModSlotPlayer.UpdateVisibleAccessories();
+                                ModSlotPlayer.UpdateVisibleVanityAccessories();
+                                ModSlotPlayer.UpdateEquips();
+                            }
                         }
-                    }
-                    else if (!string.IsNullOrEmpty(WingSlotExtra.activePlayer))
-                    {
-                        WingSlotExtra.loadoutData[WingSlotExtra.activePlayer][Player.CurrentLoadoutIndex] = (slot.FunctionalItem, slot.VanityItem, slot.DyeItem, slot.HideVisuals);
-                    }
+                        else
+                            if (!string.IsNullOrEmpty(WingSlotExtra.activePlayer) && WingSlotExtra.activePlayer == playerID && Main.LocalPlayer.CurrentLoadoutIndex == wingSlotIndex && Main.LocalPlayer.whoAmI == Player.whoAmI)
+                            WingSlotExtra.loadoutData[WingSlotExtra.activePlayer][wingSlotIndex] = (slot.FunctionalItem, slot.VanityItem, slot.DyeItem, slot.HideVisuals);
                 }
             }
             base.ApplyEquipEffects();
-        }
-
-        private static string GetPlayerID()
-        {
-            if (string.IsNullOrEmpty(WingSlotExtra.activePlayer))
-            {
-                var playerFile = Main.ActivePlayerFileData.Path.ToString();
-                var lastIndex = playerFile.LastIndexOf('\\');
-                return playerFile[(lastIndex + 1)..];
-            }
-            return WingSlotExtra.activePlayer;
-        }
-
-        private static void InitializeLoadoutData(string playerID)
-        {
-            if (!WingSlotExtra.loadoutData.ContainsKey(playerID))
-            {
-                WingSlotExtra.activePlayer = playerID;
-                WingSlotExtra.loadoutData.Add(playerID, new Dictionary<int, (Item wings, Item vanity, Item dye, bool hidden)>
-        {
-            {0, (new Item(), new Item(), new Item(), false)},
-            {1, (new Item(), new Item(), new Item(), false)},
-            {2, (new Item(), new Item(), new Item(), false)}
-        });
-            }
-        }
-
-        private void UpdateLoadoutData(ModAccessorySlot slot, bool lastLoad)
-        {
-            if (!lastLoad)
-            {
-                WingSlotExtra.lastPlayerLoadout[Player.whoAmI] = Player.CurrentLoadoutIndex;
-            }
-            WingSlotExtra.loadoutData[WingSlotExtra.activePlayer][WingSlotExtra.lastPlayerLoadout[Player.whoAmI]] = (slot.FunctionalItem, slot.VanityItem, slot.DyeItem, slot.HideVisuals);
-            WingSlotExtra.lastPlayerLoadout[Player.whoAmI] = Player.CurrentLoadoutIndex;
-            UpdateVisibleAccessories(slot);
-        }
-
-        private void UpdateVisibleAccessories(ModAccessorySlot slot)
-        {
-            foreach (var outerKvp in WingSlotExtra.loadoutData)
-            {
-                if (string.Equals(WingSlotExtra.activePlayer, outerKvp.Key))
-                {
-                    foreach (var innerKvp in outerKvp.Value)
-                    {
-                        if (innerKvp.Key == Player.CurrentLoadoutIndex)
-                        {
-                            slot.FunctionalItem = innerKvp.Value.wings;
-                            slot.VanityItem = innerKvp.Value.vanity;
-                            slot.DyeItem = innerKvp.Value.dye;
-                            slot.HideVisuals = innerKvp.Value.hidden;
-                            ModSlotPlayer.UpdateVisibleAccessories();
-                            ModSlotPlayer.UpdateVisibleVanityAccessories();
-                            ModSlotPlayer.UpdateEquips();
-                        }
-                    }
-                }
-            }
-        }
+        }*/
     }
 }

@@ -9,12 +9,6 @@ namespace WingSlotExtra // Non-english translations are done by DeepL
         public override ConfigScope Mode => ConfigScope.ClientSide;
         [Header("$Mods.WingSlotExtra.Configuration.WingSlotHeader")]
 
-        [LabelKey("$Mods.WingSlotExtra.Configuration.LoadoutSupportEnabled")]
-        [TooltipKey("$Mods.WingSlotExtra.Configuration.LoadoutSupportEnabledTooltip")]
-        [DefaultValue(true)]
-        [ReloadRequired]
-        public bool LoadoutSupportEnabled { get; set; }
-
         [LabelKey("$Mods.WingSlotExtra.Configuration.SlotsAtAccesories")]
         [TooltipKey("$Mods.WingSlotExtra.Configuration.SlotsAtAccesoriesTooltip")]
         [DefaultValue(true)]
@@ -32,6 +26,12 @@ namespace WingSlotExtra // Non-english translations are done by DeepL
         [TooltipKey("$Mods.WingSlotExtra.Configuration.AllowMultipleWingsTooltip")]
         [DefaultValue(false)]
         public bool AllowMultipleWings { get; set; }
+        [LabelKey("$Mods.WingSlotExtra.Configuration.LoadoutSupportEnabled")]
+        [TooltipKey("$Mods.WingSlotExtra.Configuration.LoadoutSupportEnabledTooltip")]
+        [DefaultValue(false)]
+        [ReadOnly(true)]
+        [ReloadRequired]
+        public bool LoadoutSupportEnabled { get; }
 
         public override void OnChanged() // Should probably be using get set instead
         {
